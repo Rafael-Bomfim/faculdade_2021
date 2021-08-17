@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8 ">
+    <style>
+        body {
+            width: 800px; /* largura da página em pixels */
+            margin: auto; /* espaçamento  a esquer e a direita automatico */
+            border: 2px solid red;
+            border-radius: 10px;
+            margin-top: 50px; 
+        }
+
+        header {
+            margin-top: 50px;
+        }
+
+        main {
+            margin-top: 20px;
+        }
+
+    </style>
+    <title>Calculadora do IMC</title> <!-- TÍTULO DA GUIA-->
+</head>
+<body> <!-- corpo da página -->
+    <header>
+        Calculadora do IMC
+    </header> <!-- cabeçalho do corpo da página -->
+    <main> <!-- conteúdo principal da página -->
+        <label> Informe seu peso </label>
+        <input type="number" id="peso"/> 
+        <label>Informe a altura </label>
+        <input type="number" id="altura"/>
+        <button onclick="calcula()" type="button"> Calcular IMC </button>
+        <p id="imc">
+
+        </p>
+
+    </main>
+    <footer> <!-- rodapé da página -->
+        Desenvolvido por alunos do 2° ciclo de ADS da FATEC Franca - agosto de 2021
+    </footer>
+    <script>
+        function calcula(){
+            //vamos recuperar os dados do HTML
+            //Perceba que a variável não tem tipo de dados- JS não é tipado
+            let peso = document.getElementById("peso").value //valor do elemento
+            let altura = document.getElementById("altura").value //valor do elemento
+            //Processamento
+            let imc = peso / (altura*altura) // operadores matemáticos exponencial é representado por **
+            // O jeito antigo de concatenar string
+            // alert("O seu IMC é de ", + imc)
+            // mostrar o resultado- estamos utilizando template string
+            //alert(`O seu IMC é de ${imc}`)
+            // colocar o resultado dentro da página
+            document.getElementById("imc").innerHTML = `O seu IMC é de ${imc.Tofixed(2)}`//duas casas após a vírgula
+        }
+
+    </script>
+</body>
+</html>
