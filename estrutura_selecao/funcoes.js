@@ -38,3 +38,21 @@ function exe2() {
     //mostra reultado
     document.getElementById("resultado").innerHTML = resultado
 }
+
+function exe3() {
+    let num1 = Number(document.getElementById("num1").value)
+    let num2 = Number(document.getElementById("num2").value)
+
+    let resultado
+
+    if (num1 < num2){
+        resultado = `O menor número é ${num1}`
+    }
+    else if (num1 > num2) {
+        resultado = `O menor número é ${num2}`
+    }
+    else {
+        resultado = `Os números são iguais!`
+    }
+    document.getElementById("resultado").innerHTML = resultado
+}
