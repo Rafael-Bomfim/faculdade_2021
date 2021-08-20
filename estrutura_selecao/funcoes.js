@@ -56,3 +56,69 @@ function exe3() {
     }
     document.getElementById("resultado").innerHTML = resultado
 }
+
+function exe4() {
+    let num1 = Number(document.getElementById("num1").value)
+    let num2 = Number(document.getElementById("num2").value)
+    let num3 = Number(document.getElementById("num3").value)
+
+    let resultado
+
+    if ((num1 > num2) && (num1 > num3)) {
+        resultado = `O maior número é ${num1}`
+    }
+    else if ((num2 > num1) && (num2 > num3)){
+        resultado = `O maior número é ${num2}`
+    }
+    else if ((num3 > num1) && (num3 > num2)){
+        resultado = `O maior número é ${num3}`
+    }
+    else {
+        resultado = `Os números são iguais`
+    }
+    document.getElementById("resultado").innerHTML = resultado
+}
+
+function exe5() {
+    let num1 = Number(document.getElementById("num1").value)
+    let num2 = Number(document.getElementById("num2").value)
+    let opc  = Number(document.getElementById("opc" ).value)
+    
+    let media 
+    let dif //diferença
+    let prod //produto
+    let div //divisão
+    let resultado
+
+    if (opc === 1) {
+        media = ((num1 + num2) /2)
+        resultado = `A média dos números digitados é ${media}`
+    }
+    else if (opc === 2) {
+        if (num1 > num2) {
+            dif = num1 - num2
+            resultado = `A diferença dos números digitados é ${dif}`
+        }
+        else {
+            dif = num2 - num1
+            resultado = `A diferença dos números digitados é ${dif}`
+        }
+    } 
+    else if (opc === 3) {
+        prod = num1 * num2
+        resultado = `O produto dos números digitados é ${prod}`
+    }
+    else if (opc === 4) {
+        if (num2 != 0) {
+            div = num1 / num2
+            resultado = `A divisão dos números digitados é ${div}`
+        }
+        else {
+            resultado = `Não é possível dividir um número por zero!!`
+        }
+    }
+    else {
+        resultado = `Opção inválida!!!`
+    }
+    document.getElementById("resultado").innerHTML = resultado
+}
