@@ -63,18 +63,18 @@ function exe4() {
     let num3 = Number(document.getElementById("num3").value)
 
     let resultado
-
-    if ((num1 > num2) && (num1 > num3)) {
+    
+    if ((num1 === num2) && (num2 === num3)) {
+        resultado = `Todos os números são iguais`
+    }
+    else if ((num1 > num2) && (num1 > num3)) {
         resultado = `O maior número é ${num1}`
     }
-    else if ((num2 > num1) && (num2 > num3)){
+    else if (num2 > num3) {
         resultado = `O maior número é ${num2}`
     }
-    else if ((num3 > num1) && (num3 > num2)){
-        resultado = `O maior número é ${num3}`
-    }
     else {
-        resultado = `Os números são iguais`
+        resultado = `O maior número é ${num3}`
     }
     document.getElementById("resultado").innerHTML = resultado
 }
@@ -83,42 +83,29 @@ function exe5() {
     let num1 = Number(document.getElementById("num1").value)
     let num2 = Number(document.getElementById("num2").value)
     let opc  = Number(document.getElementById("opc" ).value)
-    
-    let media 
-    let dif //diferença
-    let prod //produto
-    let div //divisão
-    let resultado
 
-    if (opc === 1) {
-        media = ((num1 + num2) /2)
-        resultado = `A média dos números digitados é ${media}`
-    }
-    else if (opc === 2) {
-        if (num1 > num2) {
-            dif = num1 - num2
-            resultado = `A diferença dos números digitados é ${dif}`
-        }
-        else {
-            dif = num2 - num1
-            resultado = `A diferença dos números digitados é ${dif}`
-        }
-    } 
-    else if (opc === 3) {
-        prod = num1 * num2
-        resultado = `O produto dos números digitados é ${prod}`
-    }
-    else if (opc === 4) {
-        if (num2 != 0) {
-            div = num1 / num2
-            resultado = `A divisão dos números digitados é ${div}`
-        }
-        else {
-            resultado = `Não é possível dividir um número por zero!!`
-        }
-    }
-    else {
-        resultado = `Opção inválida!!!`
+    let resultado
+    
+    switch(opc) {
+        case 1: resultado = (num1 + num2) / 2
+            break
+        case 2:  if (num1 >= num2) {
+                    resultado = num1 - num2
+                }
+                else {
+                    resultado = num2 - num1
+                }
+            break
+        case 3: resultado = num1 * num2
+            break
+        case 4: if (num2 != 0) {
+                    resultado = num1 / num2
+                }
+                else {
+                    resultado = `Não é possível dividir um número por zero!!`
+                }
+            break
+        default: resultado = "Opção inválida"
     }
     document.getElementById("resultado").innerHTML = resultado
 }
@@ -126,43 +113,38 @@ function exe5() {
 function exe6() {
     let num1 = Number(document.getElementById("num1").value)
     let num2 = Number(document.getElementById("num2").value)
-    let opc = prompt("Digite uma letra entre a-c")
+    let opc = String(document.getElementById("opc").value)
 
-    let pot //potência
+    let resultado
     let raiz_qua1 //quadrada
     let raiz_qua2
     let raiz_cub1 //cúbica
     let raiz_cub2
 
-        if (opc == "a") {
-            pot = (num1 ** num2)
-            resultado = `O resultado da potênciação é ${pot}`
-        }
-        else if (opc == "b") {
-            raiz_qua1 = Math.sqrt(num1)
-            raiz_qua2 = Math.sqrt(num2)
-
-            resultado = `A raiz quadrada do primeiro número é ${raiz_qua1} e do segundo número é ${raiz_qua2}`
-        }
-        else if (opc == "c") {
-            raiz_cub1 = Math.cbrt(num1)
-            raiz_cub2 = Math.cbrt(num2)
-
-            resultado = `A raiz cúbica do primeiro número é ${raiz_cub1} e do segundo número é ${raiz_cub2}`
-        }
-        else {
-            resultado = `Opção inválida!!`
-        }
+    switch(opc) {
+        case 'a': resultado = num1 ** num2
+            break
+        case 'b': raiz_qua1 = Math.sqrt(num1)
+                  raiz_qua2 = Math.sqrt(num2)
+                  resultado = `${raiz_qua1} e ${raiz_qua2}`
+            break
+        case 'c': raiz_cub1 = Math.cbrt(num1)
+                  raiz_cub2 = Math.cbrt(num2)
+                  resultado = `${raiz_cub1} e ${raiz_cub2}`
+            break
+        default: resultado = "Opção inválida!"
+    }
         document.getElementById("resultado").innerHTML = resultado
 }
 
 function exe7() {
     let sal = Number(document.getElementById("sal").value)
-    let aumento
+    
     let resultado
+    let aumento
 
     if (sal < 500) {
-        aumento = (sal + (sal * (30/100)))
+        aumento = (sal + (sal / 0.3))
         resultado = `O salário reajustado é R$${aumento}`
     }
     else {
@@ -218,7 +200,7 @@ function exe10() {
     let pre_final //preço final
     let resultado
 
-    if (cust_fab >= 12000) {
+    if (cust_fab <= 12000) {
         porc_dist = cust_fab * 0.05
         porc_imp = 0
         pre_final = cust_fab + porc_imp + porc_dist
