@@ -12,11 +12,59 @@ function exe0() {
 }
 
 function exe1() {
+    let a, b, c, d
+    let cont
+    let i
+    let cont2
 
+    for (cont2 = 1; cont2 <= 5; cont2++){
+    a = Number(prompt(`Informe o valor de A:`))
+    b = Number(prompt(`Informe o valor de B:`))
+    c = Number(prompt(`Informe o valor de C:`))
+    d = Number(prompt(`Informe o valor de D:`))
+    
+    for(cont = 1; cont <= 3; cont++) {
+        if (a > b){
+            i = a
+            a = b
+            b = i
+        }
+        if (b > c){
+            i = b 
+            b = c 
+            c = i
+        }
+        if (c > d){
+            i = c
+            c = d
+            d = i
+        }
+    }
+    alert(`Ordem crescente ${a} ${b} ${c} ${d}`)
+    alert(`Ordem decrescente ${d} ${c} ${b} ${a}`)
+}
 }
 
 function exe2() {
+    let quant = 120
+    let lucro
+    let saida = ""
+    let maiorLucro = 0
+    let maiorQuant = 0
+    let maiorPreco = 0
 
+    for(let preco = 5.0;preco >= 1.0; preco = preco - 0.5){
+        lucro = (preco * quant) - 200 
+        if (lucro > maiorLucro) {
+            maiorLucro = lucro
+            maiorPreco = preco
+            maiorQuant = quant
+        }
+        saida = saida + (`Preco: R$${preco}  Quant: ${quant} Despesa: R$200,00 Lucro: R$${lucro}`) + "\n"
+        quant = quant + 26 //prepara para o cálculo do próximo lucro
+    }
+    alert(saida)
+    alert(` Maior lucro: R$${maiorLucro}  Maior quantidade: R$${maiorQuant}  Maior preço: R$${maiorPreco}`)
 }
 
 function exe3() {
@@ -87,10 +135,63 @@ function exe6() {
     alert(`Primeira parcela do valor total à prazo: R$${tot_p/3}`)
 }
 
+function exe21() {
+    let opc
+    let vot1 = 0; vot2 = 0; vot3 = 0; vot4 = 0; vot5 = 0; vot6 = 0
+    let total
+    let porcNul
+    let porcBra
+
+    do {
+        opc = Number(prompt(`
+        Informe seu voto utilizando:
+        Digite 1. Candidato 1
+        Digite 2. Candidato 2
+        Digite 3. Candidato 3
+        Digite 4. Candidato 4
+        Digite 5. Voto Nulo
+        Digite 6. Voto Branco
+        Digite 0. Sair`))
+
+        switch(opc){
+            case 1: vot1++
+            break
+                case 2: vot2++
+                break
+                    case 3: vot3++
+                    break
+                        case 4: vot4++
+                        break
+                            case 5: vot5++
+                            break
+                                case 6: vot6++
+                                break
+                                    case 0: alert(`Fim da votação!!`)
+                                    break
+                                        default: alert(`Opção Inválida!!`)
+        }
+        
+    }
+    while (opc != 0)
+    total = vot1 + vot2 + vot3 + vot4 + vot5 + vot6
+    porcNul = ((vot5 / total) * 100).toFixed(2)
+    porcBra = ((vot6 / total) * 100).toFixed(2)
+
+    alert(` Contagem dos votos:
+            Candidato 1: ${vot1} votos
+            Candidato 2: ${vot2} votos
+            Candidato 3: ${vot3} votos
+            Candidato 4: ${vot4} votos
+            Nulo: ${vot5} votos
+            Branco: ${vot6} votos`)
+    alert(`Porcentagem de Nulo: ${porcNul}%   e   Porcentagem de Branco ${porcBra}%`)
+}
+
 function exe23() {
     let opc
     let sal
     let novo_sal
+    let ferias
 
     do {
         opc = Number(prompt(`
@@ -102,24 +203,25 @@ function exe23() {
         switch(opc) {
             case 1: sal = Number(prompt(`Informe o salário:`))
                 if (sal < 210) {
-                    novo_sal = sal + (15*sal)/100
+                    novo_sal = (sal + ((15*sal)/100)).toFixed(2);
                 }
                 else if (sal <= 600) {
-                    novo_sal = sal + (10*sal)/100
+                    novo_sal = (sal + ((10*sal)/100)).toFixed(2);
                 }
                 else {
-                    novo_sal = sal + (5*sal)/100
+                    novo_sal = (sal + ((5*sal)/100)).toFixed(2);
                 }
             alert(`O novo salário é de: R$${novo_sal}`)
                 break
 
             case 2: sal = Number(prompt(`Informe o salário:`))
-            alert(`As férias serão R$${sal + sal/3}`)
+            ferias = (sal + (sal/3)).toFixed(2);
+            alert(`As férias serão R$${ferias}`)
                 break 
 
             case 3: sal = Number(prompt(`Informe o salário:`))
             let meses = Number(prompt(`Informe quantos meses foram trabalhados:`))
-            alert(`Décimo terceiro R$${sal * meses/12}`)
+            alert(`Décimo terceiro R$${(sal * (meses/12)).toFixed(2)}`)
                 break
 
             case 4: alert(`O programa será encerrado!!`)
