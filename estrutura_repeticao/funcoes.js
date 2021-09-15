@@ -135,6 +135,42 @@ function exe6() {
     alert(`Primeira parcela do valor total à prazo: R$${tot_p/3}`)
 }
 
+function exe15() {
+    let m = 0
+    let sim = 0
+    let nao = 0
+    let mulherSim = 0
+    let homemNao = 0
+
+    for (let cont = 0; cont < 10; cont++) {
+        let sexo = prompt(`Informe M para Masculino e F para Feminino:`).toUpperCase()
+        let resposta = prompt(`Gostou do novo produto? S-sim; N-não:`).toUpperCase()
+
+        if (sexo === 'M') {
+            m++
+            if (resposta === 'N') {
+                homemNao++
+            }
+        }
+        else if (sexo === 'F') {
+            if (resposta === 'S') {
+                mulherSim++
+            }
+        }
+        
+        if (resposta === 'S') {
+            sim++
+        }
+        else if (resposta === 'N') {
+            nao++
+        }
+    }   
+    alert(`${sim} pessoas responderam sim;
+           ${nao} pessoas responderam não;
+           ${mulherSim} mulheres responderam sim;
+           ${(homemNao / m) * 100}% dos homens responderam não.`)
+}
+
 function exe21() {
     let opc
     let vot1 = 0; vot2 = 0; vot3 = 0; vot4 = 0; vot5 = 0; vot6 = 0
