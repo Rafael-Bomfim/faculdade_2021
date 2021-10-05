@@ -48,13 +48,114 @@ function exe2() {
 }
 
 function exe3() {
+    let vetCodigos = []
+    let vetEstoque = []
+    let cliente
 
+    for(let i = 1; i <= 10; i++) {
+        vetCodigos[i] = Number(prompt(`Informe o código do produto ${i}:`))
+        vetEstoque[i] = Number(prompt(`Informe o estoque do produto ${i}:`))
+    }
+
+    cliente = Number(prompt(`Informe o código do cliente:`)) 
+    do {
+        let codigoCompra = Number(prompt(`Informe o código do produto para compra`))
+        //verificar se o código existe
+        let achou = false //quando não encontra o produto e true quando encontra
+        for(let i = 1; i <= 10; i++) {
+            if (codigoCompra == vetCodigos[i]) {
+                achou = true
+                //atualizar estoque
+                let quantCompra = Number(prompt(`Informe a quantidade da compra:`))
+                if (vetEstoque[i] - quantCompra >= 0) { //tem estoque suficiente
+                    vetEstoque[i] = vetEstoque[i] - quantCompra
+                }
+                else {
+                    alert(`Quantidade em estoque é insuficiente!!!`)
+                }
+            }
+        }
+        if (!achou) {
+            alert(`Produto não encontrado para venda!!!`)
+        }
+        cliente = Number(prompt(`Informe o novo código do cliente. Digite 0 para encerrar:`))
+
+    }
+    while(cliente != 0)
+    alert(`Estoque atualizado ${vetEstoque}`)
 }
 
 function exe4() {
+    let cont = 0
+    let vet = []
 
+    for (let i = 1; i <= 15; i++) {
+        vet[i] = Number(prompt(`Digite o ${i}º número:`))
+    }
+
+    for (let i = 1; i <= 15; i++) {
+        if (vet[i] == 30) {
+            alert(`Na posição ${i} existe o número 30!`)
+            cont = cont + 1
+        }
+    }
+    if (cont == 0) {
+        alert(`Não foi digitado o número 30!!`)
+    }
 }
 
 function exe5() {
-    
+    let ambos = [] //As duas matérias
+    let vetL = [] //Lógica
+    let vetLp = [] //Lógica de Programação
+
+    for(let i = 1; i <= 15; i++) {
+        vetL[i] = Number(prompt(`Informe o código de matrícula do aluno que faz Lógica:`))
+    }
+    for(let j = 1; j <= 10; j++) {
+        vetLp[j] = Number(prompt(`Informe o código de matrícula do aluno que faz Lógica de Programação:`))
+    }
+
+    for(let i = 1; i <= 15; i++) {
+        for(let j = 1; j <= 10; j++){
+            if (vetL[i] == vetLp[j]) {
+                ambos.push(vetL[i])
+            }
+        }
+    }
+
+    alert(`Alunos que fazem ambas as diciplinas ${ambos}`)
+}
+
+function exe6() {
+    let vetNomes = new Array(10)
+    let vetVendas = new Array(10)
+    let vetComissao = new Array(10)
+
+    for(let i = 1; i <= 10; i++) {
+        vetNomes[i] = prompt(`Informe o nome do vendedor ${i}:`)
+        vetVendas[i] = Number(prompt(`Informe o total de vendas do vendedor ${i}:`))
+        vetComissao[i] = Number(prompt(`Informe o % de comissão do vendedor ${i}:`))
+    }
+    let totalVendas = 0
+    let maior = 0
+    let nomeMaior = ""
+    let menor = 999999999999999
+    let nomeMenor = ""
+    for(let i = 1; i <= 10; i++) {
+        let receber = (vetVendas[i] * vetComissao) / 100
+        if (receber > maior) {
+            maior = receber
+            nomeMaior = vetNomes[i]
+        }
+        if (receber < menor) {
+            menor = receber
+            nomeMenor = vetNomes[i]
+        }
+        alert(`O vendedor ${vetNomes[i]} irá receber R$${receber}`)
+        totalVendas = totalVendas + vetVendas[i]
+    }
+    alert(`O total de vendas foi de ${totalVendas}`)
+    alert(`O maior valor a receber é R$${maior} do vendedor ${nomeMaior}`)
+    alert(`O menor valor a receber é R$${menor} do vendedor ${nomeMenor}`)
 }
