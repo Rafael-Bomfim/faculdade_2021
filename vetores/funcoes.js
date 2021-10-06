@@ -159,3 +159,33 @@ function exe6() {
     alert(`O maior valor a receber é R$${maior} do vendedor ${nomeMaior}`)
     alert(`O menor valor a receber é R$${menor} do vendedor ${nomeMenor}`)
 }
+
+function exe7() {
+    let vet = new Array(10)
+    let positivo = []
+    let contNeg = 0 //contagem dos números negativos
+    let somaPos = 0 //soma dos números positivos
+
+    for(let i = 1; i <= 10; i++) {
+        vet[i] = Number(prompt(`Digite o ${i}º número:`))
+    }
+    for(let i = 1; i <= 10; i++) {
+        if(vet[i] < 0) {
+            contNeg++
+        }
+        if (vet[i] >= 0) {
+            positivo.push(vet[i])
+            somaPos = somaPos + positivo[i]
+        }
+    }
+    
+    alert(`A quantidade de números negativos é ${contNeg} e a soma dos números positivos é ${somaPos}`)
+}
+
+function exe8() {
+
+}
+
+function exe9() {
+
+}
