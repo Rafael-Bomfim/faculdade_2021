@@ -239,3 +239,38 @@ function exe9() {
         }
     }
 }
+
+function exe01() {
+    let vetor = []
+    let opc
+
+    do {
+        opc = Number(prompt(`
+        Digite 1. Cadastrar vendedor.
+        Digite 2. Cadastrar venda.
+        Digite 3. Consultar as vendas de um funcionário em determinado mês.
+        Digite 4. Consultar o total de vendas de determinado vendedor.
+        Digite 5. Mostrar o número do vendedor que mais vendeu em determinado mês.
+        Digite 6. Mostrar o número do mês com mais vendas.
+        Digite 7. Finalizar o programa.`))
+
+       switch(opc) {
+           case 1:
+               break
+            case 2:
+                break
+            case 3:
+                break
+            case 4:
+                break
+            case 5:
+                break
+            case 6:
+                break
+            case 7: alert(`O program será encerrado!!!`)
+                break
+            default: alert(`Opção inválida!!`)
+       }
+    }
+    while (opc != 7)
+}
