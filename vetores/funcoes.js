@@ -1,16 +1,16 @@
 function exe1() {
 
-let vet=[]
-let par=[]
-let impar=[]
+let vet = new Array(6)
+let par = []
+let impar = []
 
-for(let i=0; i<6; i++) {
-    vet[i] = Number(prompt(`Informe o elemento ${i+1}`))
+for (let i = 1; i <= 6; i++) {
+    vet[i] = Number(prompt(`Informe o elemento ${i}`))
 }
 
-for(let i=0; i<6; i++) {
+for (let i = 1; i <= 6; i++) {
 
-    if(vet[i] % 2 == 0) {
+    if (vet[i] % 2 == 0) {
         par.push(vet[i])
     }
     else {
@@ -22,16 +22,16 @@ for(let i=0; i<6; i++) {
 }
 
 function exe2() {
-    let vetor = []
+    let vetor = new Array(7)
     let m2 = []
     let m3 = []
     let m23 = []
 
-    for(let i=0; i<7; i++) {
-        vetor[i] = Number(prompt(`Informe o número ${i+1}`))
+    for (let i = 1; i <= 7; i++) {
+        vetor[i] = Number(prompt(`Informe o número ${i}`))
     }
 
-    for(let i=0; i<7; i++) {
+    for (let i = 1; i <= 7; i++) {
         if (vetor[i] % 2 == 0) {
             m2.push(vetor[i])
         }
@@ -48,11 +48,11 @@ function exe2() {
 }
 
 function exe3() {
-    let vetCodigos = []
-    let vetEstoque = []
+    let vetCodigos = new Array(10)
+    let vetEstoque = new Array(10)
     let cliente
 
-    for(let i = 1; i <= 10; i++) {
+    for (let i = 1; i <= 10; i++) {
         vetCodigos[i] = Number(prompt(`Informe o código do produto ${i}:`))
         vetEstoque[i] = Number(prompt(`Informe o estoque do produto ${i}:`))
     }
@@ -86,8 +86,8 @@ function exe3() {
 }
 
 function exe4() {
+    let vet = new Array(15)
     let cont = 0
-    let vet = []
 
     for (let i = 1; i <= 15; i++) {
         vet[i] = Number(prompt(`Digite o ${i}º número:`))
@@ -106,24 +106,23 @@ function exe4() {
 
 function exe5() {
     let ambos = [] //As duas matérias
-    let vetL = [] //Lógica
-    let vetLp = [] //Lógica de Programação
+    let vetL = new Array(15) //Lógica
+    let vetLp = new Array(10) //Lógica de Programação
 
-    for(let i = 1; i <= 15; i++) {
+    for (let i = 1; i <= 15; i++) {
         vetL[i] = Number(prompt(`Informe o código de matrícula do aluno que faz Lógica:`))
     }
-    for(let j = 1; j <= 10; j++) {
+    for (let j = 1; j <= 10; j++) {
         vetLp[j] = Number(prompt(`Informe o código de matrícula do aluno que faz Lógica de Programação:`))
     }
 
-    for(let i = 1; i <= 15; i++) {
+    for (let i = 1; i <= 15; i++) {
         for(let j = 1; j <= 10; j++){
             if (vetL[i] == vetLp[j]) {
                 ambos.push(vetL[i])
             }
         }
     }
-
     alert(`Alunos que fazem ambas as diciplinas ${ambos}`)
 }
 
@@ -229,7 +228,7 @@ function exe9() {
         }
     }
 
-    for(let i = 1; i <= 10; i++) {
+    for (let i = 1; i <= 10; i++) {
         if (novoPreco[i] != -1) {
         alert(`O produto ${vetProdutos[i]} com código ${vetCodigos[i]}, custava R$${vetPrecos[i]} e sofreu aumento para 
                R$${novoPreco[i]}.`)

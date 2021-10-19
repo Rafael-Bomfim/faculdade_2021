@@ -1,16 +1,16 @@
 function exe1() {
 
-let vet=[]
-let par=[]
-let impar=[]
+let vet = new Array(6)
+let par = []
+let impar = []
 
-for(let i=0; i<6; i++) {
-    vet[i] = Number(prompt(`Informe o elemento ${i+1}`))
+for (let i = 1; i <= 6; i++) {
+    vet[i] = Number(prompt(`Informe o elemento ${i}`))
 }
 
-for(let i=0; i<6; i++) {
+for (let i = 1; i <= 6; i++) {
 
-    if(vet[i] % 2 == 0) {
+    if (vet[i] % 2 == 0) {
         par.push(vet[i])
     }
     else {
@@ -22,16 +22,16 @@ for(let i=0; i<6; i++) {
 }
 
 function exe2() {
-    let vetor = []
+    let vetor = new Array(7)
     let m2 = []
     let m3 = []
     let m23 = []
 
-    for(let i=0; i<7; i++) {
-        vetor[i] = Number(prompt(`Informe o número ${i+1}`))
+    for (let i = 1; i <= 7; i++) {
+        vetor[i] = Number(prompt(`Informe o número ${i}`))
     }
 
-    for(let i=0; i<7; i++) {
+    for (let i = 1; i <= 7; i++) {
         if (vetor[i] % 2 == 0) {
             m2.push(vetor[i])
         }
@@ -48,27 +48,28 @@ function exe2() {
 }
 
 function exe3() {
-    let vetCodigos = []
-    let vetEstoque = []
+    let vetor = new Array (10)
     let cliente
 
-    for(let i = 1; i <= 10; i++) {
-        vetCodigos[i] = Number(prompt(`Informe o código do produto ${i}:`))
-        vetEstoque[i] = Number(prompt(`Informe o estoque do produto ${i}:`))
+    for (let i = 1; i <= 10; i++) {
+        let objeto = {
+        codigo: Number(prompt(`Informe o código do produto ${i}:`)),
+        estoque: Number(prompt(`Informe o estoque do produto ${i}:`))
+        }
+        vetor[i] = objeto
     }
-
     cliente = Number(prompt(`Informe o código do cliente:`)) 
     do {
         let codigoCompra = Number(prompt(`Informe o código do produto para compra`))
         //verificar se o código existe
         let achou = false //quando não encontra o produto e true quando encontra
-        for(let i = 1; i <= 10; i++) {
-            if (codigoCompra == vetCodigos[i]) {
+        for (let i = 1; i <= 10; i++) {
+            if (codigoCompra == vetor[i].codigo) {
                 achou = true
                 //atualizar estoque
                 let quantCompra = Number(prompt(`Informe a quantidade da compra:`))
-                if (vetEstoque[i] - quantCompra >= 0) { //tem estoque suficiente
-                    vetEstoque[i] = vetEstoque[i] - quantCompra
+                if (vetor[i].estoque - quantCompra >= 0) { //tem estoque suficiente
+                    vetor[i].estoque = vetor[i].estoque - quantCompra
                 }
                 else {
                     alert(`Quantidade em estoque é insuficiente!!!`)
@@ -79,10 +80,9 @@ function exe3() {
             alert(`Produto não encontrado para venda!!!`)
         }
         cliente = Number(prompt(`Informe o novo código do cliente. Digite 0 para encerrar:`))
-
     }
     while(cliente != 0)
-    alert(`Estoque atualizado ${vetEstoque}`)
+    alert(`Estoque atualizado ${vetor}`)
 }
 
 function exe4() {
@@ -106,8 +106,8 @@ function exe4() {
 
 function exe5() {
     let ambos = [] //As duas matérias
-    let vetL = [] //Lógica
-    let vetLp = [] //Lógica de Programação
+    let vetL = new Array(15) //Lógica
+    let vetLp = new Array(10) //Lógica de Programação
 
     for(let i = 1; i <= 15; i++) {
         vetL[i] = Number(prompt(`Informe o código de matrícula do aluno que faz Lógica:`))
@@ -123,37 +123,38 @@ function exe5() {
             }
         }
     }
-
     alert(`Alunos que fazem ambas as diciplinas ${ambos}`)
 }
 
 function exe6() {
-    let vetNomes = new Array(10)
-    let vetVendas = new Array(10)
-    let vetComissao = new Array(10)
-
-    for(let i = 1; i <= 10; i++) {
-        vetNomes[i] = prompt(`Informe o nome do vendedor ${i}:`)
-        vetVendas[i] = Number(prompt(`Informe o total de vendas do vendedor ${i}:`))
-        vetComissao[i] = Number(prompt(`Informe o % de comissão do vendedor ${i}:`))
-    }
+    let vetor = new Array(10)
     let totalVendas = 0
     let maior = 0
     let nomeMaior = ""
     let menor = 999999999999999
     let nomeMenor = ""
+
     for(let i = 1; i <= 10; i++) {
-        let receber = (vetVendas[i] * vetComissao) / 100
+        let objeto = {
+        nome: prompt(`Informe o nome do vendedor ${i}:`),
+        vendas: Number(prompt(`Informe o total de vendas do vendedor ${i}:`)),
+        comissao: Number(prompt(`Informe o % de comissão do vendedor ${i}:`))
+        }
+        vetor[i] = objeto
+    }
+    
+    for(let i = 1; i <= 10; i++) {
+        let receber = (vetor[i].vendas * vetor[i].comissao) / 100
         if (receber > maior) {
             maior = receber
-            nomeMaior = vetNomes[i]
+            nomeMaior = vetor[i].nome
         }
         if (receber < menor) {
             menor = receber
-            nomeMenor = vetNomes[i]
+            nomeMenor = vetor[i].nome
         }
-        alert(`O vendedor ${vetNomes[i]} irá receber R$${receber}`)
-        totalVendas = totalVendas + vetVendas[i]
+        alert(`O vendedor ${vetor[i].nome} irá receber R$${receber}`)
+        totalVendas = totalVendas + vetor[i].vendas
     }
     alert(`O total de vendas foi de ${totalVendas}`)
     alert(`O maior valor a receber é R$${maior} do vendedor ${nomeMaior}`)
@@ -180,23 +181,25 @@ function exe7() {
 }
 
 function exe8() {
-    let vetNomes = new Array(7)
-    let vetMedia = new Array(7)
+    let vetor = new Array(7)
     let nomeMaiorMedia
     let maiorMedia = 0
 
     for(let i = 1; i <= 7; i++) {
-        vetNomes[i] = prompt(`Digite o nome do ${i}º aluno:`)
-        vetMedia[i] = Number(prompt(`Digite a média do ${i}º aluno:`))
+        let objeto = {
+        nome: prompt(`Digite o nome do ${i}º aluno:`),
+        media: Number(prompt(`Digite a média do ${i}º aluno:`))
+        }
+        vetor[i] = objeto
     }
     for(let i = 1; i <= 7; i++) {
-        if (vetMedia[i] > maiorMedia) {
-        maiorMedia = Math.max(vetMedia[i])
-        nomeMaiorMedia = vetNomes[i]
+        if (vetor[i].media > maiorMedia) {
+        maiorMedia = Math.max(vetor[i].media)
+        nomeMaiorMedia = vetor[i].nome
         }
 
-        if (vetMedia[i] < 7) {
-            alert(`O(a) aluno(a) ${vetNomes[i]} precisa tirar ${10 - vetMedia[i]} no exame! `)
+        if (vetor[i].media < 7) {
+            alert(`O(a) aluno(a) ${vetor[i].nome} precisa tirar ${10 - vetor[i].media} no exame! `)
         }
     }
     alert(`O(a) aluno(a) ${nomeMaiorMedia} obteve a maior média final com ${maiorMedia}!!`)
