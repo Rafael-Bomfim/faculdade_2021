@@ -182,10 +182,7 @@ function exe7() {
 function exe8() {
     let vetNomes = new Array(7)
     let vetMedia = new Array(7)
-    let nomeMenor = []
-    let notaMenor = []
-    let nomeMaiorMedia 
-    let notaExame = 0
+    let nomeMaiorMedia
     let maiorMedia = 0
 
     for(let i = 1; i <= 7; i++) {
@@ -196,46 +193,47 @@ function exe8() {
         if (vetMedia[i] > maiorMedia) {
         maiorMedia = Math.max(vetMedia[i])
         nomeMaiorMedia = vetNomes[i]
-    }
-}
-    alert(`O(a) aluno(a) ${nomeMaiorMedia} obteve a maior média final com ${maiorMedia}!!`)
-
-    for(let i = 1; i <= 7; i++) {
-        if (vetMedia[i] < 7) {
-            notaMenor.push(vetMedia[i])
-            nomeMenor.push(vetNomes[i])
-            notaExame == (10 - notaMenor[i])
         }
-        alert(`O(a) aluno(a) ${nomeMenor} precisa tirar ${notaExame} no exame! `)
-    }  
+
+        if (vetMedia[i] < 7) {
+            alert(`O(a) aluno(a) ${vetNomes[i]} precisa tirar ${10 - vetMedia[i]} no exame! `)
+        }
+    }
+    alert(`O(a) aluno(a) ${nomeMaiorMedia} obteve a maior média final com ${maiorMedia}!!`)
 }
 
 function exe9() {
-    let vetProdutos = new Array(4)
-    let vetCodigos = new Array(4)
-    let vetPrecos = new Array(4)
+    let vetProdutos = new Array(10)
+    let vetCodigos = new Array(10)
+    let vetPrecos = new Array(10)
     let novoPreco = []
 
-    for(let i = 1; i <= 4; i++) {
-        vetProdutos[i] = prompt(`Digite o nome do produto:`)
-        vetCodigos[i] = Number(prompt(`Digite o código do produto:`))
-        vetPrecos[i] = Number(prompt(`Digite o preço do produto:`))
+    for(let i = 1; i <= 10; i++) {
+        vetProdutos[i] = prompt(`Digite o nome do ${i}º produto:`)
+        vetCodigos[i] = Number(prompt(`Digite o código do ${i}º produto:`))
+        vetPrecos[i] = Number(prompt(`Digite o preço do ${i}º produto:`))
     }
-    for(let i = 1; i <= 4; i++) {
+
+    for(let i = 1; i <= 10; i++) {
         if (vetPrecos[i] > 1000) {
-            novoPreco[i] == (vetPrecos[i] * (10 / 100))
+            novoPreco[i] = (vetPrecos[i] + (vetPrecos[i] * (10 / 100)))
         }
-        if (vetCodigos[i] % 2 === 0) {
-            novoPreco[i] == (vetPrecos[i] * (15 / 100))
+        else if (vetCodigos[i] % 2 == 0) {
+            novoPreco[i] = (vetPrecos[i] + (vetPrecos[i] * (15 / 100)))
         }
-        if ((vetCodigos[i] % 2 === 0) && (vetPrecos[i] > 1000)) {
-            novoPreco[i] == (vetPrecos[i] * (20 / 100))
+        else if ((vetCodigos[i] % 2 == 0) && (vetPrecos[i] > 1000)) {
+            novoPreco[i] = (vetPrecos[i] + (vetPrecos[i] * (20 / 100)))
         }
-        alert(`O produto ${vetProdutos} que custava R$${vetPrecos}, sofreu aumento e foi para R$${novoPreco}.`)
+        else {
+            novoPreco[i] = -1 //indica que não teve aumento
+        }
+        alert(`O produto ${vetProdutos[i]} que custava R$${vetPrecos[i]}, sofreu aumento e foi para R$${novoPreco}.`)
     }
-    for(let i = 1; i <= 4; i++) {
-        if ((vetPrecos[i] < 1000) && (vetCodigos[i] % 2 !== 0)) {
-            alert(`O produto ${vetProdutos} não sofreu alteração no preço!!!`)
+
+    for(let i = 1; i <= 10; i++) {
+        if (novoPreco[i] != -1) {
+        alert(`O produto ${vetProdutos[i]} com código ${vetCodigos}, custava R$${vetPrecos[i]} e sofreu aumento para 
+               R$${novoPreco[i]}.`)
         }
     }
 }
