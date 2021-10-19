@@ -227,12 +227,11 @@ function exe9() {
         else {
             novoPreco[i] = -1 //indica que não teve aumento
         }
-        alert(`O produto ${vetProdutos[i]} que custava R$${vetPrecos[i]}, sofreu aumento e foi para R$${novoPreco}.`)
     }
 
     for(let i = 1; i <= 10; i++) {
         if (novoPreco[i] != -1) {
-        alert(`O produto ${vetProdutos[i]} com código ${vetCodigos}, custava R$${vetPrecos[i]} e sofreu aumento para 
+        alert(`O produto ${vetProdutos[i]} com código ${vetCodigos[i]}, custava R$${vetPrecos[i]} e sofreu aumento para 
                R$${novoPreco[i]}.`)
         }
     }
