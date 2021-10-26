@@ -241,7 +241,8 @@ function exe9() {
 }
 
 function exe01() {
-    let vetor = []
+    let vetorVendedores = []
+    let vetVendas = []
     let opc
 
     do {
@@ -255,11 +256,58 @@ function exe01() {
         Digite 7. Finalizar o programa.`))
 
        switch(opc) {
-           case 1:
+           case 1: 
+           let objeto = {
+               codigo: prompt(`Informe o código do vendedor:`),
+               nome: prompt(`Informe o nome do vendedor`)
+            }
+            let achou = false //se não encontra recebe false, se encontrar recebe true
+            for(let i = 1; i <= vetVendedores.length; i++) { //percorrer o vetor para encontrar código já existente
+                if (vetVendedores[i].codigo == objeto.codigo) { //vetVendedores.length retorna a quantidade de elementos do vetor
+                    achou = true //encontrou vendedor com o mesmo código
+                }
+            }
+            if (achou) {
+                alert(`Já existe um vendedor com este código!!`)
+            }
+            else {
+                vetVendedores.push(objeto) //adiciona o vendedor no vetor
+                alert(`Vendedor cadastrado com sucesso!!`)
+            }
                break
             case 2:
+                let objeto2 = {
+                    vendedor: prompt(`Informe o código do vendedor:`),
+                    mes: Number(prompt(`Informe o mês da venda:`)),
+                    valor: Number(prompt(`Informe o valor da venda:`))
+                }
+                let achou2 = false
+                for(let i = 1; i <= vetVendas.length; i++) {
+                    if ((vetVendas[i].vendedor == objeto2.vendedor) && (vetVendas[i].mes == objeto2.mes)) {
+                        achou2 = true
+                    }
+                }
+                if (achou2) {
+                    alert(`Já existe uma venda deste vendedor neste mês!!!`)
+                }
+                else {
+                    vetVendas.push(objeto2)
+                    alert(`Venda cadastrada com sucesso!!!`)
+                }
                 break
             case 3:
+                let codigoInteresse = prompt(`Informe o código do vendedor:`)
+                let mesInteresse = Number(prompt(`Informe o mês de interesse:`))
+                let achou3 = false
+                for (let i = 1; i <= vetVendas.length; i++) {
+                    if ((vetVendas[i].vendedor == codigoInteresse) && (vetVendas[i].mes == mesInteresse)) {
+                        alert(`O valor das vendas no mês ${mesInteresse} do funcionário ${codigoInteresse} é de R$${vetVendas[i].valor}!`)
+                        achou3 = true
+                    }
+                }
+                if (!achou3) {
+                    alert(`Não foi encontrada venda do vendedor ${codigoInteresse} no mês ${mesInteresse}!`)
+                }
                 break
             case 4:
                 break
@@ -267,7 +315,7 @@ function exe01() {
                 break
             case 6:
                 break
-            case 7: alert(`O program será encerrado!!!`)
+            case 7: alert(`O programa será encerrado!!!`)
                 break
             default: alert(`Opção inválida!!`)
        }
