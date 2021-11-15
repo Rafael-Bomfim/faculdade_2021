@@ -203,3 +203,121 @@ function exe01() {
     }
     while (opc != 7)
 }
+
+function parImpar(vetor) {
+    let par = []
+    let impar = []
+
+    for (let i = 1; i <= 30; i++) {
+        vetor[i] = Number(prompt(`Digite o ${i}º número:`))
+    }
+
+    for (let i = 1; i <= 30; i++) {
+        if (vetor[i] % 2 == 0) {
+            par.push(vetor[i])
+        }
+        else {
+            impar.push(vetor[i])
+        }
+    }
+
+    if (par.length == 0) {
+        alert(`Não possui números pares.`)
+    }
+    else {
+        alert(`Os números pares são: ${par}`)
+    }
+
+    if (impar.length == 0) {
+        alert(`Não possui números ímpares.`)
+    }
+    else {
+        alert(`Os números ímpares são: ${impar}`)
+    }
+
+}
+
+function exe1() {
+    let vetor = new Array(30)
+    parImpar(vetor)
+}
+
+function pares(vet) {
+    let par = []
+
+    for (let i = 1; i <= 5; i++) {
+        vet[i] = Number(prompt(`Digite o ${i}º número:`))
+    }
+
+    for (let i = 1; i <= 5; i++) {
+        if (vet[i] % 2 == 0) {
+            par.push(vet[i])
+        }
+    }
+
+    if (par.length == 0) {
+        alert(`Não possui números pares.`)
+    }
+    else {
+        alert(`A quantidade de números pares é: ${par.length}
+               E são eles ${par}.`)
+    }
+}
+
+function exe2() {
+    let vet = new Array(5)
+    pares(vet)
+}
+
+function soma(vetor) {
+    let soma = 0
+
+    for (let i = 1; i<= 20; i++) {
+        vetor[i] = Number(prompt(`Digite o ${i}º número:`))
+    }
+
+    for (let i = 1; i<= 20; i++) {
+        soma = soma + vetor[i]
+    }
+    
+    alert(`A soma dos elementos digitados é: ${soma}`)
+}
+
+function exe3() {
+    let vetor = new Array(20)
+    soma(vetor)
+}
+
+function substituicao(vet) {
+    let negativos = []
+
+    for (let i = 1; i <= 5; i++) {
+        vet = Number(prompt(`Digite o ${i}º número:`))
+    }
+
+    for (let i = 1; i <= 5; i++) {
+        if (vet[i] < 0) {
+            negativos.push(vet[i])
+            negativos == 0
+        }
+    }
+
+    alert(`Resultado ${negativos}`)
+}
+
+function exe4() {
+    let vet = new Array(5)
+    substituicao(vet)
+}
+
+function exe5() {
+    
+}
+
+function exe6() {
+
+}
+
+function exe7() {
+    
+}
