@@ -51,3 +51,37 @@ function exe1() {
     entradaDados(vetor, matriz)
     calculaMediaAlunos(vetor, matriz)
 }
+
+function entradaDados(vetor, matriz) {
+    for (let i = 1; i <= 4; i++) {
+        let objeto = {
+            codigo: prompt(`Informe o código do carro ${i}:`),
+            marca: prompt(`informe a marca do carro ${i}:`),
+            modelo: prompt(`Informe o modelo do carro ${i}:`),
+            totVendas: 0
+        }
+        vetor[i] = objeto
+        matriz[i] = []
+        for (let j = 1; j <= 4; j++) {
+            matriz [i] [j] = Number(prompt( `Informe a quantidade de vendas no trimestre ${j}:`))
+        }
+    }
+}
+
+function calculaTotalVendas(vetor, matriz) {
+    for (let i = 1; i <= 4; i++) {
+        let soma = 0
+        for (let j = 1; j <= 4; j++) {
+           soma = soma + matriz[i][j] 
+        }
+        alert(`O total de vendas do carro ${vetor[i].codigo} é R$${soma} `)
+        vetor[i].totVendas = soma
+    }
+}
+
+function exe2() {
+    let vetor = []
+    let matriz = []
+    entradaDados(vetor, matriz)
+    calculaTotalVendas(vetor, matriz)
+}
