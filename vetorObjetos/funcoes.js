@@ -364,15 +364,15 @@ function exe01() {
                     let posicao = vetVendas[i].mes - 1
                     vendasMes[posicao] = vendasMes[posicao] + vetVendas[i].valor
                 }
-                let maiorVenda = 0
+                let maiorVenda2 = 0
                 let maiorMes = 0
                 for (let i = 1; i <= vendasMes.length; i++) {
-                    if (vendasMes[i] > maiorVenda) {
-                        maiorVenda = vendasMes
+                    if (vendasMes[i] > maiorVenda2) {
+                        maiorVenda2 = vendasMes
                         maiorMes = i
                     }
                 }
-                alert(`O mês ${maiorMes} teve a maior venda de R$${maiorVenda}`)
+                alert(`O mês ${maiorMes} teve a maior venda de R$${maiorVenda2}`)
                 break
             case 7: alert(`O programa será encerrado!!!`)
                 break
